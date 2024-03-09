@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1 id="comparison-title">Code Comparison</h1>
+    <div class="container">
+        <div class="menu">
+            <button class="button" onclick="selectProgram('fibonacci')">Fibonacci</button>
+            <button class="button" onclick="selectProgram('palindrome')">Palindrome</button>
+        </div>
+    </div>
+
+    <div class="container" id="language-cards">
+        <div class="code-container">
+            <div class="code-title">Java</div>
+            <pre><code id="java-code"></code></pre>
+        </div>
+
+        <div class="code-container">
+            <div class="code-title">JavaScript</div>
+            <pre><code id="javascript-code"></code></pre>
+        </div>
+
+        <div class="code-container">
+            <div class="code-title">Csharp</div>
+            <pre><code id="csharp-code"></code></pre>
+        </div>
+
+        <div class="code-container">
+            <div class="code-title">Python</div>
+            <pre><code id="python-code"></code></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
