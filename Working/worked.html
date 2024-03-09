@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fibonacci Series Comparison</title>
+    <title>Code Comparison</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <h1>Fibonacci Series Comparison</h1>
-
+    <h1 id="comparison-title">Code Comparison</h1>
     <div class="container">
+        <div class="menu">
+            <button class="button" onclick="selectProgram('fibonacci')">Fibonacci</button>
+            <button class="button" onclick="selectProgram('palindrome')">Palindrome</button>
+        </div>
+    </div>
+
+    <div class="container" id="language-cards">
         <div class="code-container">
             <div class="code-title">Java</div>
             <pre><code id="java-code"></code></pre>
@@ -24,7 +30,7 @@
         </div>
 
         <div class="code-container">
-            <div class="code-title">C#</div>
+            <div class="code-title">Csharp</div>
             <pre><code id="csharp-code"></code></pre>
         </div>
 
@@ -34,22 +40,7 @@
         </div>
     </div>
 
-    <script>
-        // Fetch and inject code snippets
-        fetchCode('./code/java_code.java', 'java-code');
-        fetchCode('./code/javascript_code.js', 'javascript-code');
-        fetchCode('./code/csharp_code.cs', 'csharp-code');
-        fetchCode('./code/python_code.py', 'python-code');
-
-        function fetchCode(url, targetId) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(targetId).textContent = data;
-                })
-                .catch(error => console.error('Error fetching code:', error));
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
