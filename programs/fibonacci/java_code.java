@@ -1,4 +1,4 @@
-package fibonacci;
+package programs.fibonacci;
 
 class java_code {
     public static void main(String[] args) {

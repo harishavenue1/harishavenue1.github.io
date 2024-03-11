@@ -1,4 +1,4 @@
-package palindrome;
+package programs.palindrome;
 
 public class java_code {
     public static boolean isPalindrome(String str) {

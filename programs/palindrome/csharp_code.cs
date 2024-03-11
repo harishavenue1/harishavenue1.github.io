@@ -14,12 +14,8 @@ class Program
     {
         string str = "radar";
         if (IsPalindrome(str))
-        {
             Console.WriteLine(str + " is a palindrome.");
-        }
         else
-        {
             Console.WriteLine(str + " is not a palindrome.");
-        }
     }
 }

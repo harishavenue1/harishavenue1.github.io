@@ -14,8 +14,8 @@ function selectProgram(program) {
             fileExtn = 'py'
         else
             fileExtn = 'js'
-        fetchCode('./' + program + '/' + language + '_code.' + fileExtn, targetId);
 
+        fetchCode('./programs/' + program + '/' + language + '_code.' + fileExtn, targetId);
     });
 
     updatePageTitle(program.charAt(0).toUpperCase() + program.slice(1));
