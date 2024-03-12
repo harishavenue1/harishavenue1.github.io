@@ -12,5 +12,5 @@ def maxProfit(prices):
         rightIndex+=1
     return maxProfit
 
-mProfit = maxProfit([7,1,5,3,6,4]) # -> 5, [7,6,4,3,1] -> 0
+mProfit = maxProfit([7,1,5,3,6,4])
 print(mProfit)

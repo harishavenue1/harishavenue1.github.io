@@ -1,4 +1,4 @@
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
     let maxProfit = 0
     let currentProfit = 0
     let leftIndex = 0
@@ -12,10 +12,10 @@ var maxProfit = function(prices) {
         else {
             leftIndex = rightIndex;
         }
-        rightIndex+=1;
+        rightIndex += 1;
     }
     return maxProfit
 };
 
-let profit = maxProfit([7,6,4,3,1]) // -> 0, [7,1,5,3,6,4] -> 5
-console.log(profit)
+let profit = maxProfit([7, 6, 4, 3, 1]);
+console.log(profit);

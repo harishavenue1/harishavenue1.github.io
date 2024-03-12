@@ -9,16 +9,16 @@ class java_code {
             if (prices[rightIndex] > prices[leftIndex]) {
                 currentProfit = prices[rightIndex] - prices[leftIndex];
                 maxProfit = Math.max(currentProfit, maxProfit);
-            }
-            else {
+            } else {
                 leftIndex = rightIndex;
             }
             rightIndex++;
         }
         return maxProfit;
     }
+
     public static void main(String[] args) {
-        int profit = maxProfit(new int[] {7,6,4,3,1}); //[7,1,5,3,6,4] -> 5 && [7,6,4,3,1] --> 0
+        int profit = maxProfit(new int[] { 7, 6, 4, 3, 1 });
         System.out.println(profit);
     }
 }
