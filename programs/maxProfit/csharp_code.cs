@@ -1,35 +1,32 @@
 using System;
 
-namespace MyCompiler
+class Program
 {
-    class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            int profit = MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 });
-            Console.WriteLine(profit);
-        }
+        int profit = MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 });
+        Console.WriteLine(profit);
+    }
 
-        public static int MaxProfit(int[] prices)
-        {
-            int maxProfit = 0;
-            int leftIndex = 0, rightIndex = 0;
-            int currentProfit = 0;
+    public static int MaxProfit(int[] prices)
+    {
+        int maxProfit = 0;
+        int leftIndex = 0, rightIndex = 0;
+        int currentProfit = 0;
 
-            while (rightIndex < prices.Length)
+        while (rightIndex < prices.Length)
+        {
+            if (prices[rightIndex] > prices[leftIndex])
             {
-                if (prices[rightIndex] > prices[leftIndex])
-                {
-                    currentProfit = prices[rightIndex] - prices[leftIndex];
-                    maxProfit = Math.Max(maxProfit, currentProfit);
-                }
-                else
-                {
-                    leftIndex = rightIndex;
-                }
-                rightIndex++;
+                currentProfit = prices[rightIndex] - prices[leftIndex];
+                maxProfit = Math.Max(maxProfit, currentProfit);
             }
-            return maxProfit;
+            else
+            {
+                leftIndex = rightIndex;
+            }
+            rightIndex++;
         }
+        return maxProfit;
     }
 }
