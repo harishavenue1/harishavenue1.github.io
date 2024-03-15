@@ -1,6 +1,5 @@
 package programs.maxProdArray;
 
-// The main method must be in a class named "Main".
 class java_code
 {
     public static void main(String[] args) {
