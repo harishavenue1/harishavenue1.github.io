@@ -2,8 +2,10 @@ package programs.containsDuplicate;
 
 import java.util.HashSet;
 
-public class java_code {
-  public static void main(String[] args) {
+public class java_code 
+{
+  public static void main(String[] args) 
+  {
     boolean flag = containsDuplicate(new int[] { 1, 2, 3, 1 });
     System.out.println("containsDuplicate " + flag);
 
@@ -14,12 +16,13 @@ public class java_code {
     System.out.println("containsDuplicate " + flag);
   }
 
-  public static boolean containsDuplicate(int[] nums) {
+  public static boolean containsDuplicate(int[] nums) 
+  {
     HashSet<Integer> set = new HashSet<>();
-    for (int i = 0; i < nums.length; i++) {
-      if (set.contains(nums[i])) {
+    for (int i = 0; i < nums.length; i++) 
+    {
+      if (set.contains(nums[i]))
         return true;
-      }
       set.add(nums[i]);
     }
     return false;
