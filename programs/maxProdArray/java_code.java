@@ -2,7 +2,8 @@ package programs.maxProdArray;
 
 class java_code
 {
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         int[] arr = {2,3,-2,4};
         int maxProd = maxProduct(arr);
         System.out.println("Max Product is "+ maxProd);
@@ -12,7 +13,8 @@ class java_code
         System.out.println("Max Product is "+ maxProd);
     }
 
-    public static int maxProduct(int[] nums) {
+    public static int maxProduct(int[] nums) 
+    {
         int arrLen = nums.length;
         int leftProd = 1, rightProd = 1;
 
