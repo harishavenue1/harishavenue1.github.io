@@ -3,13 +3,16 @@ class java_code
     public static void main(String[] args) 
     {
         int[] arr = {3,4,5,1,2};
-        System.out.println("Minimum of Sorted and if rotated Array is "+ findMin_sorted_rotatedArray(arr));
+        int output = findMin_sorted_rotatedArray(arr);
+        System.out.println("Minimum of Sorted and if rotated Array is "+ output);
 
         arr = new int[] {4,5,6,7,0,1,2};
-        System.out.println("Minimum of Sorted and if rotated Array is "+ findMin_sorted_rotatedArray(arr));
+        output = findMin_sorted_rotatedArray(arr);
+        System.out.println("Minimum of Sorted and if rotated Array is "+ output);
 
         arr = new int[] {11,13,15,17};
-        System.out.println("Minimum of Sorted and if rotated Array is "+ findMin_sorted_rotatedArray(arr));
+        output = findMin_sorted_rotatedArray(arr);
+        System.out.println("Minimum of Sorted and if rotated Array is "+ output);
     }
 
     public static int findMin_sorted_rotatedArray(int[] nums) 
