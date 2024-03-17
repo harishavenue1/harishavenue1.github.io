@@ -17,16 +17,16 @@ class java_code
 
     public static int findMin_sorted_rotatedArray(int[] nums) 
     {
-        int left = 0, right = nums.length - 1, mid = 0;
-        while (left < right - 1) 
+        int leftIndex = 0, rightIndex = nums.length - 1, midIndex = 0;
+        while (leftIndex < rightIndex - 1) 
         {
-            mid = (left + right) / 2;
-            if (nums[mid] > nums[right])
-                left = mid;
+            midIndex = (leftIndex + rightIndex) / 2;
+            if (nums[midIndex] > nums[rightIndex])
+                leftIndex = midIndex;
             else
-                right = mid;        
+                rightIndex = midIndex;        
         }
         
-        return (nums[left] < nums[right] ? nums[left]: nums[right]);
+        return (nums[leftIndex] < nums[rightIndex] ? nums[leftIndex]: nums[rightIndex]);
     }
 }
