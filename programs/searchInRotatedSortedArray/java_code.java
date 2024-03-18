@@ -23,7 +23,8 @@ public class java_code
     int rightIndex = nums.length - 1;
     int midIndex = 0;
     
-    while (leftIndex < rightIndex - 1) {
+    while (leftIndex < rightIndex - 1) 
+    {
       midIndex = (leftIndex + rightIndex) / 2;
       if (nums[midIndex] == target)
         return midIndex;
