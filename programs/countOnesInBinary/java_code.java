@@ -15,7 +15,7 @@ public class Main
     while (num != 0) 
     {
       setBit += num & 1; // and with num = result (1) if digit is 1
-      num = num >>> 1; // next move right to get next digit checked from left
+      num = num >> 1; // next move right to get next digit checked from left
     }
     System.out.println("Set Bit: "+ setBit);
     return setBit;
