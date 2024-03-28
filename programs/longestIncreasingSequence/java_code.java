@@ -1,3 +1,5 @@
+package programs.longestIncreasingSequence;
+
 import java.util.Arrays;
 
 public class java_code {
