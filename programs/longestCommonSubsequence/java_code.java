@@ -1,4 +1,4 @@
-package programs.longestCommonSubSequence;
+package programs.longestCommonSubsequence;
 
 public class java_code {
 
