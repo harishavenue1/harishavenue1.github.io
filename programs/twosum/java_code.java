@@ -16,15 +16,27 @@ class java_code
 
     public static int[] twoSum(int[] nums, int target) 
     {
+        
+        // Java: HashMap to store number -> index mapping for O(1) lookup
         Map<Integer, Integer> numMap = new HashMap<>();
 
+        
+        // Java: Standard for-loop with .length field
         for (int i = 0; i < nums.length; i++) 
         {
+            
+            // Calculate complement needed to reach target
             int key = target - nums[i];
+            
+            // Java: .containsKey() checks if complement exists in map
             if (numMap.containsKey(key)) 
             {
+                
+                // Java: Array literal syntax for return
                 return new int[] { numMap.get(key), i };
             }
+            
+            // Java: .put() stores current number and its index
             numMap.put(nums[i], i);
         }
         return new int[] {}; // No solution found

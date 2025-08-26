@@ -19,16 +19,25 @@ namespace HelloWorld
 
 		public static Boolean containsDuplicate(int[] nums)
 		{
+			
+			// C#: HashSet<T> for O(1) average lookup time
 			HashSet<int> inSet = new HashSet<int>();
+			
+			// C#: Standard for-loop with .Length property
 			for (int i = 0; i < nums.Length; i++)
 			{
+				
+				// C#: .Contains() method checks if element exists
 				if (inSet.Contains(nums[i]))
 				{
-					return true;
+					return true;  // Duplicate found
 				}
+				
+				// C#: .Add() method adds element to HashSet
 				inSet.Add(nums[i]);
 			}
-			return false;
+			
+			return false;  // No duplicates found
 		}
 	}
 }

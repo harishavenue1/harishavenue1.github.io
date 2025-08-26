@@ -16,19 +16,29 @@ public class java_code {
   }
 
   public static int searchInRotatedSortedArray(int[] nums, int target) {
+    
+    // Java: Modified binary search for rotated sorted array
     int leftIndex = 0;
     int rightIndex = nums.length - 1;
     int midIndex = 0;
 
+    // Java: Binary search with rotation handling
     while (leftIndex < rightIndex - 1) {
+      
+      // Java: Calculate middle index to avoid overflow
       midIndex = (leftIndex + rightIndex) / 2;
+      
+      // Found target at middle
       if (nums[midIndex] == target)
         return midIndex;
+        
+      // Determine which half is sorted and search accordingly
       else if (nums[midIndex] > target)
-        leftIndex = midIndex;
+        leftIndex = midIndex;   // Search right half
       else
-        rightIndex = midIndex;
+        rightIndex = midIndex;  // Search left half
     }
-    return -1;
+    
+    return -1;  // Target not found
   }
 }

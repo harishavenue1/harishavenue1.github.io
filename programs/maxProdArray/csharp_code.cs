@@ -19,6 +19,7 @@ public class Program
     
     for (int i=0; i<arrLen; i++) 
     {
+
       // reset prod values to 1 if values goes to 0
       leftProd = (leftProd == 0 ? 1 : leftProd);
       rightProd = (rightProd == 0 ? 1 : rightProd);

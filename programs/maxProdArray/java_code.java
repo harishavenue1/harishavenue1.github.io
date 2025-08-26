@@ -23,6 +23,7 @@ class java_code
 
         for (int i=0; i<arrLen; i++) 
         {
+
             // reset left or right prod if prod gets == 0
             leftProd = (leftProd==0 ? 1 : leftProd);
             rightProd = (rightProd==0 ? 1 : rightProd);

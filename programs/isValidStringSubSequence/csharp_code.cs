@@ -13,16 +13,26 @@ namespace MyCompiler
         }
         public static bool isValidSubSequence(String s1, String s2)
         {
+            
+            // C#: Get string lengths using .Length property
             int m = s1.Length;
             int n = s2.Length;
 
+            
+            // C#: Pointer for subsequence string
             int j = 0;
+            
+            // C#: for-loop with compound condition
             for (int i = 0; i < n && j < m; i++)
             {
+                
+                // C#: Direct character comparison using indexing
                 if (s1[j] == s2[i])
-                    j++;
+                    j++;  // Move subsequence pointer forward
             }
 
+            
+            // C#: Check if all characters of subsequence were found
             return j == m;
         }
     }

@@ -1,8 +1,16 @@
 bitWiseAndCount = function(num) {
+  
+  // JavaScript: Counter for set bits (1s)
   let setBit = 0
   
+  
+  // JavaScript: Loop until all bits are processed
   while (num != 0) {
-    setBit += num & 1 
+    
+    // JavaScript: AND with 1 to check if least significant bit is 1
+    setBit += num & 1
+    
+    // JavaScript: Right shift to process next bit
     num = num >> 1
   }
     

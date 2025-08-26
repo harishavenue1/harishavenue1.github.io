@@ -15,7 +15,10 @@ function selectProgram(program) {
         else
             fileExtn = 'js'
 
-        fetchCode('https://raw.githubusercontent.com/harishavenue1/harishavenue1.github.io/main/programs/' + program + '/' + language + '_code.' + fileExtn, targetId);
+        const baseUrl = window.location.hostname === 'localhost' ? 
+            './programs/' : 
+            'https://raw.githubusercontent.com/harishavenue1/harishavenue1.github.io/main/programs/';
+        fetchCode(baseUrl + program + '/' + language + '_code.' + fileExtn, targetId);
     });
 
     updatePageTitle(program.charAt(0).toUpperCase() + program.slice(1));

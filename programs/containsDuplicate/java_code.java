@@ -18,13 +18,21 @@ public class java_code
 
   public static boolean containsDuplicate(int[] nums) 
   {
+    
+    // Java: HashSet for O(1) average lookup time
     HashSet<Integer> set = new HashSet<>();
+    
+    // Java: Standard for-loop with array length
     for (int i = 0; i < nums.length; i++) 
     {
+      
+      // Java: .contains() checks if element already exists
       if (set.contains(nums[i]))
-        return true;
+        return true;  // Duplicate found
+      
+      // Java: .add() inserts element into set
       set.add(nums[i]);
     }
-    return false;
+    return false;  // No duplicates found
   }
 }

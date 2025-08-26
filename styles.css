@@ -27,7 +27,7 @@ h1 {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 2400px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -47,6 +47,10 @@ h1 {
 }
 
 .code-container {
+    transition: all 0.3s ease;
+}
+
+.code-container {
     background: #1a1a1a;
     border-radius: 15px;
     overflow: hidden;
@@ -55,10 +59,7 @@ h1 {
     backdrop-filter: blur(10px);
 }
 
-.code-container:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
+
 
 .code-title {
     background: linear-gradient(45deg, #C7D2FE, #DDD6FE);
@@ -78,13 +79,13 @@ pre {
     padding: 20px;
     margin: 0;
     font-family: 'Calibri', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    overflow-x: auto;
+    font-size: 11px;
+    line-height: 1.3;
+    overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
     max-height: 400px;
-    overflow-y: auto;
+    transition: all 0.3s ease;
 }
 
 code {
@@ -128,6 +129,12 @@ code .method { color: #ffc66d; }
     transform: translateY(0);
 }
 
+@media (max-width: 1200px) {
+    #language-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -144,5 +151,9 @@ code .method { color: #ffc66d; }
     
     .container {
         padding: 15px;
+    }
+    
+    pre {
+        font-size: 12px;
     }
 }

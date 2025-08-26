@@ -1,13 +1,23 @@
 def mergeSortedArrays(arr1, arr2):
+    
+    # Python: Get array lengths using len()
     len1 = len(arr1)
     len2 = len(arr2)
     
+    
+    # Python: Create result array with zeros
     arr3 = [0] * (len1 + len2)
     len3 = len(arr3)
     
+    
+    # Python: Three pointers for merging
     i, j, k = 0, 0, 0
     
+    
+    # Python: Merge while both arrays have elements
     while(i<len1 and j<len2):
+        
+        # Python: Compare and add smaller element
         if arr1[i] < arr2[j]:
             arr3[k] = arr1[i]
             i+=1
@@ -16,11 +26,15 @@ def mergeSortedArrays(arr1, arr2):
             j+=1
         k+=1
         
+    
+    # Python: Add remaining elements from first array
     while(i<len1 and k<len3):
         arr3[k] = arr1[i]
         k+=1
         i+=1
 
+    
+    # Python: Add remaining elements from second array
     while(j<len2 and k<len3):
         arr3[k] = arr2[j]
         k+=1

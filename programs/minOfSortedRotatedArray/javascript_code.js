@@ -1,16 +1,26 @@
 findMin_sorted_rotatedArray = function (nums) {
+    
+    // JavaScript: Binary search pointers for rotated array
     let leftIndex = 0;
     let rightIndex = nums.length - 1;
     let midIndex = 0;
 
+    
+    // JavaScript: Modified binary search to find minimum
     while (leftIndex < rightIndex - 1) {
+        
+        // JavaScript: Math.floor() for integer division
         midIndex = Math.floor((leftIndex + rightIndex) / 2);
+        
+        // JavaScript: Compare middle with right to determine which half to search
         if (nums[midIndex] < nums[rightIndex])
-            rightIndex = midIndex;
+            rightIndex = midIndex;  // Minimum is in left half
         else
-            leftIndex = midIndex;
+            leftIndex = midIndex;   // Minimum is in right half
     }
 
+    
+    // JavaScript: Ternary operator to return smaller element
     return (nums[leftIndex] < nums[rightIndex]) ? nums[leftIndex] : nums[rightIndex];
 };
 

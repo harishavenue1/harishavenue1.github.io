@@ -11,13 +11,24 @@ public class java_code
 
   public static int sumWithoutAdd(int a, int b) 
   {
+    
+    // Java: Temporary variable for carry calculation
     int temp = 0;
+    
+    // Java: Loop until no carry bits remain
     while (b != 0) 
     {
-      temp = (a & b) << 1; // and oper and carry left 1 
-      a = a ^ b; // xor oper 
+      
+      // Java: Calculate carry using AND and left shift
+      temp = (a & b) << 1;
+      
+      // Java: XOR operation for sum without carry
+      a = a ^ b;
+      
+      // Update carry for next iteration
       b = temp;
     }
+    
     return a;
   }
 }

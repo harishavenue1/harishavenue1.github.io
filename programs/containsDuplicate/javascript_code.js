@@ -1,6 +1,12 @@
 containsDuplicate = function(nums) {
+  
+  // JavaScript: Set constructor automatically removes duplicates
   const inSet = new Set(nums);
-  return inSet.size != nums.length; //set.has(value) will return boolean
+  
+  
+  // JavaScript: Compare Set size with original array length
+  // If sizes differ, duplicates existed in original array
+  return inSet.size != nums.length;
 };
 
 console.log('Contains Duplicate ' + containsDuplicate([1,2,3,1]))

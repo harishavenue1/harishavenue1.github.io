@@ -7,11 +7,20 @@ public class java_code {
   }
 
   public static int bitWiseAndCount(int num) {
+    
+    // Java: Counter for set bits (1s)
     int setBit = 0;
+    
+    // Java: Loop until all bits are processed
     while (num != 0) {
-      setBit += num & 1; // and with num = result (1) if digit is 1
-      num = num >> 1; // next move right to get next digit checked from left
+      
+      // Java: AND with 1 to check if least significant bit is 1
+      setBit += num & 1;
+      
+      // Java: Right shift to process next bit
+      num = num >> 1;
     }
+    
     System.out.println("Set Bit: " + setBit);
     return setBit;
   }

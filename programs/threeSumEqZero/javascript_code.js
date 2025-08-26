@@ -1,16 +1,21 @@
 threeSumEqZero = function (nums) {
+    
+    // JavaScript: Initialize pointers and sum variable
     let leftIndex = 0
     let rightIndex = nums.length - 1
     let sum = 0
 
-    // sort
+    
+    // JavaScript: .sort() with custom comparator for numeric sorting
     nums.sort((a, b) => { return a - b })
     console.log("Sorted Array is ", nums)
 
-    // list to capture all possible values
+    
+    // JavaScript: Array to capture all possible values
     valuesList = []
 
-    // list to capture unique values
+    
+    // JavaScript: Set to capture unique values
     valuesSet = new Set()
 
     for (let i = 0; i < nums.length; i++) {
