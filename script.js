@@ -24,11 +24,18 @@ function selectProgram(program) {
 // Function to fetch and inject code snippets
 function fetchCode(url, targetId) {
     fetch(url)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            return response.text();
+        })
         .then(data => {
             document.getElementById(targetId).textContent = data;
         })
-        .catch(error => console.error('Error fetching code:', error));
+        .catch(error => {
+            document.getElementById(targetId).textContent = 'Code not available for this language';
+        });
 }
 
 // Function to update page title and h1 based on selected program
