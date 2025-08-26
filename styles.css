@@ -1,79 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    /* 20% */
-    background-color: #33194d;
-    color: #ffffff;
+    font-family: 'Calibri', sans-serif;
+    background: linear-gradient(135deg, #E0E7FF 0%, #F3E8FF 100%);
+    color: #6B7280;
     margin: 0;
     padding: 0;
     font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 h1 {
     text-align: center;
-    margin-top: 20px;
-    /* 70% */
-    color: #b38cd9;
-    font-size: 28px;
+    margin: 0;
+    padding: 30px 0;
+    color: #4C1D95;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-shadow: none;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 20px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+#language-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
 }
 
 .code-container {
-    flex: 1 1 calc(50% - 20px);
-    border-radius: 8px;
-    background-color: #222222;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .code-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .code-title {
+    background: linear-gradient(45deg, #C7D2FE, #DDD6FE);
+    color: #4C1D95;
     text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-    /* 80% */
-    color: #ccb3e6;
-    /* text-transform: uppercase; */
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 15px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: #333333;
-    border-radius: 0 0 8px 8px;
+    background-color: #1a1a1a;
+    color: #a9b7c6;
     padding: 20px;
     margin: 0;
-    font-size: 16px;
+    font-family: 'Calibri', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
-/* Improving text colors inside code snippets */
 code {
-    /* 90% */
-    color: #e6d9f2;
-    /* color: #60a7dd; */
+    color: #a9b7c6;
+    font-family: 'Calibri', monospace;
 }
+
+/* Syntax highlighting for different languages */
+code .keyword { color: #cc7832; font-weight: bold; }
+code .string { color: #6a8759; }
+code .number { color: #6897bb; }
+code .comment { color: #808080; font-style: italic; }
+code .function { color: #ffc66d; }
+code .variable { color: #9876aa; }
+code .operator { color: #a9b7c6; }
+code .bracket { color: #a9b7c6; }
+code .type { color: #b5b5b5; }
+code .method { color: #ffc66d; }
 
 .button {
-    /* 90% RebeccaPurple */
-    background-color: #e6d9f2;
-    font-size: 16px;
-    padding: 10px 24px;
-    border-radius: 6px;
-    transition-duration: 0.4s;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(45deg, #C7D2FE, #DDD6FE);
+    color: #4C1D95;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(196, 181, 253, 0.3);
+    text-transform: capitalize;
 }
 
 .button:hover {
-    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(196, 181, 253, 0.4);
+    background: linear-gradient(45deg, #DDD6FE, #C7D2FE);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        padding: 20px 0;
+    }
+    
+    .menu {
+        grid-template-columns: 1fr;
+    }
+    
+    #language-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 15px;
+    }
 }

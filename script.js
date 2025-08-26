@@ -32,6 +32,7 @@ function fetchCode(url, targetId) {
         })
         .then(data => {
             document.getElementById(targetId).textContent = data;
+            Prism.highlightAll();
         })
         .catch(error => {
             document.getElementById(targetId).textContent = 'Code not available for this language';
