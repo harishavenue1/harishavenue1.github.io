@@ -21,9 +21,9 @@ h1 {
     font-size: 2.5rem;
     font-weight: 300;
     text-shadow: none;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .container {
@@ -47,34 +47,37 @@ h1 {
 }
 
 .code-container {
-    transition: all 0.3s ease;
-}
-
-.code-container {
-    background: #1a1a1a;
+    background: #000000;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+}
+
+.code-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 
 
 .code-title {
-    background: linear-gradient(45deg, #C7D2FE, #DDD6FE);
+    background: #D5CBFD;
     color: #4C1D95;
     text-align: center;
-    font-weight: 600;
-    font-size: 1.2rem;
-    padding: 15px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 18px;
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(76, 29, 149, 0.1);
 }
 
 pre {
-    background-color: #1a1a1a;
+    background-color: #000000 !important;
     color: #a9b7c6;
     padding: 20px;
     margin: 0;
@@ -84,8 +87,14 @@ pre {
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
-    max-height: 400px;
+    height: 400px;
     transition: all 0.3s ease;
+}
+
+code {
+    background-color: #000000 !important;
+    color: #a9b7c6;
+    font-family: 'Calibri', monospace;
 }
 
 code {
@@ -94,19 +103,50 @@ code {
 }
 
 /* Syntax highlighting for different languages */
-code .keyword { color: #cc7832; font-weight: bold; }
-code .string { color: #6a8759; }
-code .number { color: #6897bb; }
-code .comment { color: #808080; font-style: italic; }
-code .function { color: #ffc66d; }
-code .variable { color: #9876aa; }
-code .operator { color: #a9b7c6; }
-code .bracket { color: #a9b7c6; }
-code .type { color: #b5b5b5; }
-code .method { color: #ffc66d; }
+code .keyword {
+    color: #cc7832;
+    font-weight: bold;
+}
+
+code .string {
+    color: #6a8759;
+}
+
+code .number {
+    color: #6897bb;
+}
+
+code .comment {
+    color: #808080;
+    font-style: italic;
+}
+
+code .function {
+    color: #ffc66d;
+}
+
+code .variable {
+    color: #9876aa;
+}
+
+code .operator {
+    color: #a9b7c6;
+}
+
+code .bracket {
+    color: #a9b7c6;
+}
+
+code .type {
+    color: #b5b5b5;
+}
+
+code .method {
+    color: #ffc66d;
+}
 
 .button {
-    background: linear-gradient(45deg, #C7D2FE, #DDD6FE);
+    background: #D5CBFD;
     color: #4C1D95;
     border: none;
     font-size: 14px;
@@ -122,7 +162,7 @@ code .method { color: #ffc66d; }
 .button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(196, 181, 253, 0.4);
-    background: linear-gradient(45deg, #DDD6FE, #C7D2FE);
+    background: #A78BFA;
 }
 
 .button:active {
@@ -140,19 +180,19 @@ code .method { color: #ffc66d; }
         font-size: 2rem;
         padding: 20px 0;
     }
-    
+
     .menu {
         grid-template-columns: 1fr;
     }
-    
+
     #language-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .container {
         padding: 15px;
     }
-    
+
     pre {
         font-size: 12px;
     }

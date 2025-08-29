@@ -35,6 +35,7 @@ function fetchCode(url, targetId) {
         })
         .then(data => {
             document.getElementById(targetId).textContent = data;
+            document.getElementById(targetId).parentElement.scrollTop = 0;
             Prism.highlightAll();
         })
         .catch(error => {
