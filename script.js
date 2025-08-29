@@ -3,7 +3,7 @@ function selectProgram(program) {
     const languageCards = document.querySelectorAll('.code-container');
     let fileExtn = ''
     languageCards.forEach(card => {
-        const language = card.querySelector('.code-title').textContent.toLowerCase();
+        const language = card.dataset.language;
         const targetId = language + "-code";
         card.style.display = "block";
         if (language == 'csharp')
@@ -47,6 +47,77 @@ function fetchCode(url, targetId) {
 function updatePageTitle(program) {
     document.title = "Code Comparison - " + program;
     document.getElementById('comparison-title').textContent = "Code Comparison - " + program;
+}
+
+// Function to toggle maximize
+function toggleMaximize(button) {
+    const container = button.closest('.code-container');
+    const title = container.querySelector('.code-title').textContent.replace(' 📋', '').replace(' ⛶', '').replace(' ✕', '').trim();
+    const codeContent = container.querySelector('code').textContent;
+    
+    // Create fullscreen modal
+    const modal = document.createElement('div');
+    modal.className = 'fullscreen-modal';
+    modal.style.display = 'block';
+    
+    modal.innerHTML = `
+        <div class="fullscreen-content">
+            <div class="code-title">${title} 
+                <button class="copy-btn" onclick="copyCodeFromModal(this)">📋</button>
+                <button class="maximize-btn" onclick="closeMaximize(this)">✕</button>
+            </div>
+            <pre><code class="language-${title.toLowerCase()}">${codeContent}</code></pre>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    Prism.highlightAll();
+}
+
+// Function to close maximize
+function closeMaximize(button) {
+    const modal = button.closest('.fullscreen-modal');
+    document.body.removeChild(modal);
+}
+
+// Function to copy code to clipboard
+function copyCode(button) {
+    const container = button.closest('.code-container');
+    const codeContent = container.querySelector('code').textContent;
+    
+    navigator.clipboard.writeText(codeContent).then(() => {
+        // Show feedback
+        const originalText = button.innerHTML;
+        button.innerHTML = '✓';
+        button.style.background = 'rgba(34, 197, 94, 0.3)';
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.style.background = '#D5CBFD';
+        }, 1000);
+    }).catch(() => {
+        alert('Failed to copy code');
+    });
+}
+
+// Function to copy code from fullscreen modal
+function copyCodeFromModal(button) {
+    const modal = button.closest('.fullscreen-modal');
+    const codeContent = modal.querySelector('code').textContent;
+    
+    navigator.clipboard.writeText(codeContent).then(() => {
+        // Show feedback
+        const originalText = button.innerHTML;
+        button.innerHTML = '✓';
+        button.style.background = 'rgba(34, 197, 94, 0.3)';
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.style.background = '#D5CBFD';
+        }, 1000);
+    }).catch(() => {
+        alert('Failed to copy code');
+    });
 }
 
 // Initially select the first program
