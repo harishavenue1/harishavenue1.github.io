@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/comparatorLogic" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/countOnesInBinary" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/designLRUCache" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/groupAnagrams" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hashmapOperations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/listOperations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/longestSubstringWithoutRepeatingChars" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/maxArea" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/maxSumOfSubArray" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/minOfSortedRotatedArray" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/replaceCharInplace" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/returnDistinctElements" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/searchInRotatedSortedArray" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/setOperations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/streamOperations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sumWithoutAdd" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/testCaseGenerator" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/topKFrequentElements" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/validParentheses" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
