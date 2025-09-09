@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cypress Commands Cheat Sheet</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #333; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+
+        .back-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #007acc; color: white; text-decoration: none; border-radius: 4px; }
+        h1 { color: #17202c; border-bottom: 3px solid #17202c; padding-bottom: 10px; }
+        h2 { color: #007acc; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Cypress Commands Reference Guide</h1>
+
+    <h2>Basic Commands</h2>
+    <h3>Navigation</h3>
+    <pre><code>cy.visit('https://example.com')           // Navigate to URL
+cy.go('back')                            // Browser back
+cy.go('forward')                         // Browser forward
+cy.go(-1)                               // Go back 1 page
+cy.go(1)                                // Go forward 1 page
+cy.reload()                             // Reload page</code></pre>
+
+    <h3>Element Selection</h3>
+    <pre><code>cy.get('selector')                       // Get element by CSS selector
+cy.get('input[placeholder="Email"]')     // Get by attribute
+cy.get('#id')                           // Get by ID
+cy.get('.class')                        // Get by class
+cy.contains('text')                     // Get element containing text
+cy.contains('Sign in').click()          // Chain with action</code></pre>
+
+    <h3>XPath (requires cypress-xpath plugin)</h3>
+    <pre><code>cy.xpath('//a[normalize-space()="Sign in"]')
+cy.xpath('//input[@placeholder="Email"]')
+cy.xpath('//button[normalize-space()="Sign in"]')</code></pre>
+
+    <h2>User Actions</h2>
+    <h3>Clicking</h3>
+    <pre><code>cy.get('button').click()                 // Basic click
+cy.get('element').click({force: true})   // Force click (bypass visibility)</code></pre>
+
+    <h3>Typing</h3>
+    <pre><code>cy.get('input').type('text')             // Type text
+cy.get('input').clear()                  // Clear input
+cy.get('input').clear().type('new text') // Clear and type</code></pre>
+
+    <h3>Form Controls</h3>
+    <pre><code>// Checkboxes
+cy.get('#checkbox').check()              // Check checkbox
+cy.get('#checkbox').check({force: true}) // Force check
+cy.get('#checkbox').uncheck()            // Uncheck
+
+// Radio Buttons
+cy.get('#radio').click({force: true})    // Select radio button
+
+// Dropdowns
+cy.get('select').select('option')        // Select by text
+cy.get('select').select('value')         // Select by value
+cy.get('#mySelect').select('Set to 100%').should('have.value', '100%')</code></pre>
+
+    <h2>Assertions & Validations</h2>
+    <h3>Visibility & State</h3>
+    <pre><code>cy.get('element').should('be.visible')
+cy.get('element').should('not.be.visible')
+cy.get('element').should('exist')
+cy.get('element').should('not.exist')
+cy.get('checkbox').should('be.checked')
+cy.get('checkbox').should('not.be.checked')</code></pre>
+
+    <h3>Content Assertions</h3>
+    <pre><code>cy.get('element').should('contain', 'text')
+cy.get('element').should('have.text', 'exact text')
+cy.get('element').should('have.value', 'value')
+cy.get('element').should('have.attr', 'attribute', 'value')</code></pre>
+
+    <h2>Alert & Dialog Handling</h2>
+    <pre><code>// Simple Alert
+cy.on('window:alert', (str) => {
+    expect(str).to.equal('Alert message')
+})
+
+// Confirmation Alert - Accept
+cy.on('window:confirm', (str) => {
+    expect(str).to.equal('Confirm message')
+    return true  // Accept
+})
+
+// Prompt Alert
+cy.window().then(($win) => {
+    cy.stub($win, 'prompt').returns('Hello Alert')
+    cy.contains('Click for JS Prompt').click()
+})</code></pre>
+
+    <h2>API Testing</h2>
+    <pre><code>// GET Request
+cy.request('GET', 'https://api.example.com/users')
+  .then((response) => {
+      expect(response.status).equal(200)
+      expect(response.body.data[0].name).equal('John')
+  })
+
+// POST Request
+const user = { "name": "John", "job": "developer" }
+cy.request('POST', 'https://api.example.com/users', user)
+  .then((response) => {
+      expect(response.status).equal(201)
+      expect(response.body.name).equal(user.name)
+  })</code></pre>
+
+    <h2>Custom Commands</h2>
+    <pre><code>// In cypress/support/commands.js
+Cypress.Commands.add("customLogin", (email, password) => {
+    cy.visit('/')
+    cy.contains('Sign in').click()
+    cy.get('input[type="email"]').type(email)
+    cy.get('input[type="password"]').type(password)
+    cy.get('button[type="submit"]').click()
+})
+
+// Usage in tests
+cy.customLogin('user@example.com', 'password')</code></pre>
+
+    <h2>Running Tests</h2>
+    <pre><code># Open Cypress Test Runner
+npm run open
+
+# Run tests in Chrome
+npm run chrome
+
+# Run tests in Electron (headless)
+npm run electron
+
+# Run smoke tests
+npm run smoke-test</code></pre>
+
+    <a href="../index.html" class="back-link">← Back to Main</a>
+</body>
+</html>
