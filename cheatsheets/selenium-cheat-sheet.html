@@ -158,6 +158,102 @@ element.Selected;
 element.Text;
 element.GetAttribute("attribute");</code></pre>
 
+    <h2>Advanced Actions</h2>
+    <pre><code>// Java - Actions Class
+Actions actions = new Actions(driver);
+actions.moveToElement(element).perform();        // Hover
+actions.dragAndDrop(source, target).perform();   // Drag & Drop
+actions.contextClick(element).perform();         // Right click
+actions.doubleClick(element).perform();          // Double click
+
+// Python - ActionChains
+from selenium.webdriver.common.action_chains import ActionChains
+actions = ActionChains(driver)
+actions.move_to_element(element).perform()
+actions.drag_and_drop(source, target).perform()
+actions.context_click(element).perform()
+
+// C#
+Actions actions = new Actions(driver);
+actions.MoveToElement(element).Perform();
+actions.DragAndDrop(source, target).Perform();</code></pre>
+
+    <h2>JavaScript Execution & Multiple Elements</h2>
+    <pre><code>// Java
+JavaScriptExecutor js = (JavaScriptExecutor) driver;
+js.executeScript("arguments[0].click();", element);
+js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+List<WebElement> elements = driver.findElements(By.className("item"));
+
+// Python
+driver.execute_script("arguments[0].click();", element)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+elements = driver.find_elements(By.CLASS_NAME, "item")
+
+// C#
+IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+js.ExecuteScript("arguments[0].click();", element);
+var elements = driver.FindElements(By.ClassName("item"));</code></pre>
+
+    <h2>Frames & Windows</h2>
+    <pre><code>// Java
+driver.switchTo().frame("frameName");            // Switch to frame
+driver.switchTo().defaultContent();              // Back to main content
+driver.switchTo().window(windowHandle);          // Switch window
+Set<String> windows = driver.getWindowHandles(); // Get all windows
+
+// Python
+driver.switch_to.frame("frameName")
+driver.switch_to.default_content()
+driver.switch_to.window(window_handle)
+windows = driver.window_handles
+
+// C#
+driver.SwitchTo().Frame("frameName");
+driver.SwitchTo().DefaultContent();
+driver.SwitchTo().Window(windowHandle);</code></pre>
+
+    <h2>Alert Handling</h2>
+    <pre><code>// Java
+Alert alert = driver.switchTo().alert();
+alert.accept();                              // Accept alert
+alert.dismiss();                             // Dismiss alert
+String alertText = alert.getText();          // Get alert text
+alert.sendKeys("text");                     // Type in prompt
+
+// Python
+alert = driver.switch_to.alert
+alert.accept()
+alert.dismiss()
+alert_text = alert.text
+alert.send_keys("text")
+
+// C#
+IAlert alert = driver.SwitchTo().Alert();
+alert.Accept();
+alert.Dismiss();
+string alertText = alert.Text;
+alert.SendKeys("text");</code></pre>
+
+    <h2>Cookies & Screenshots</h2>
+    <pre><code>// Java
+driver.manage().addCookie(new Cookie("name", "value"));
+driver.manage().deleteCookieNamed("name");
+driver.manage().deleteAllCookies();
+File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+// Python
+driver.add_cookie({"name": "value"})
+driver.delete_cookie("name")
+driver.delete_all_cookies()
+driver.save_screenshot("screenshot.png")
+
+// C#
+driver.Manage().Cookies.AddCookie(new Cookie("name", "value"));
+driver.Manage().Cookies.DeleteCookieNamed("name");
+driver.Manage().Cookies.DeleteAllCookies();
+var screenshot = ((ITakesScreenshot)driver).GetScreenshot();</code></pre>
+
     <h2>Browser Management</h2>
     <pre><code>// Java
 driver.manage().window().maximize();

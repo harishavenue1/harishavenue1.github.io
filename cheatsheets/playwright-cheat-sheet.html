@@ -170,6 +170,70 @@ page.locator('element').screenshot(path='element.png')
 await page.ScreenshotAsync(new() { Path = "screenshot.png" });
 await page.Locator("element").ScreenshotAsync(new() { Path = "element.png" });</code></pre>
 
+    <h2>Keyboard & Mouse Actions</h2>
+    <pre><code>// JavaScript/TypeScript
+await page.keyboard.press('Enter');
+await page.keyboard.type('Hello World');
+await page.locator('element').click({ button: 'right' }); // Right click
+await page.locator('source').dragTo(page.locator('target')); // Drag & drop
+
+// Python
+page.keyboard.press('Enter')
+page.keyboard.type('Hello World')
+page.locator('element').click(button='right')
+page.locator('source').drag_to(page.locator('target'))
+
+// C#
+await page.Keyboard.PressAsync("Enter");
+await page.Keyboard.TypeAsync("Hello World");
+await page.Locator("element").ClickAsync(new() { Button = MouseButton.Right });</code></pre>
+
+    <h2>Frames & Network Interception</h2>
+    <pre><code>// JavaScript/TypeScript
+const frame = page.frame('frameName');
+await frame.locator('input').fill('text');
+
+// Network interception
+await page.route('**/api/users', route => {
+    route.fulfill({ json: { users: [] } });
+});
+await page.route('**/api/**', route => route.continue());
+
+// Python
+frame = page.frame('frameName')
+frame.locator('input').fill('text')
+
+# Network interception
+page.route('**/api/users', lambda route: route.fulfill(json={"users": []}))
+
+// C#
+var frame = page.Frame("frameName");
+await frame.Locator("input").FillAsync("text");</code></pre>
+
+    <h2>Cookies & Mobile Emulation</h2>
+    <pre><code>// JavaScript/TypeScript
+await context.addCookies([{ name: 'token', value: 'abc123', url: 'https://example.com' }]);
+const cookies = await context.cookies();
+await context.clearCookies();
+
+// Mobile emulation
+const iPhone = playwright.devices['iPhone 12'];
+const context = await browser.newContext({ ...iPhone });
+
+// Python
+context.add_cookies([{"name": "token", "value": "abc123", "url": "https://example.com"}])
+cookies = context.cookies()
+context.clear_cookies()
+
+# Mobile emulation
+iphone = playwright.devices['iPhone 12']
+context = browser.new_context(**iphone)
+
+// C#
+await context.AddCookiesAsync(new[] { new Cookie { Name = "token", Value = "abc123", Url = "https://example.com" } });
+var cookies = await context.CookiesAsync();
+await context.ClearCookiesAsync();</code></pre>
+
     <h2>Multi-Browser & Context</h2>
     <pre><code>// JavaScript/TypeScript
 const context = await browser.newContext();

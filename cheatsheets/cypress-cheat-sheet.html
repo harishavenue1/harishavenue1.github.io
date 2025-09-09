@@ -165,6 +165,33 @@ Cypress.Commands.add("customLogin", (email, password) => {
 // Usage in tests
 cy.customLogin('user@example.com', 'password')</code></pre>
 
+    <h2>Waits & Network</h2>
+    <pre><code>cy.wait(5000)                           // Wait for milliseconds
+cy.intercept('GET', '/api/users').as('getUsers')
+cy.wait('@getUsers')                    // Wait for network request
+cy.intercept('POST', '/api/login', { fixture: 'user.json' })</code></pre>
+
+    <h2>Viewport & Screenshots</h2>
+    <pre><code>cy.viewport(1280, 720)                  // Set viewport size
+cy.screenshot()                         // Take screenshot
+cy.screenshot('my-image')               // Named screenshot
+cy.get('element').screenshot()          // Element screenshot</code></pre>
+
+    <h2>Cookies & Storage</h2>
+    <pre><code>cy.setCookie('name', 'value')           // Set cookie
+cy.getCookie('name')                    // Get cookie
+cy.clearCookies()                       // Clear all cookies
+cy.clearLocalStorage()                  // Clear local storage
+cy.clearSessionStorage()                // Clear session storage</code></pre>
+
+    <h2>Multiple Elements & File Upload</h2>
+    <pre><code>cy.get('li').each(($el, index) => {     // Iterate elements
+    cy.wrap($el).click()
+})
+cy.get('li').first()                    // First element
+cy.get('li').last()                     // Last element
+cy.get('input[type="file"]').selectFile('path/to/file.pdf')</code></pre>
+
     <h2>Running Tests</h2>
     <pre><code># Open Cypress Test Runner
 npm run open
