@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selenium Commands Cheat Sheet</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #333; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+        .back-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #007acc; color: white; text-decoration: none; border-radius: 4px; }
+        h1 { color: #43B02A; border-bottom: 3px solid #43B02A; padding-bottom: 10px; }
+        h2 { color: #007acc; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Selenium WebDriver Reference Guide</h1>
+
+    <h2>Basic Setup</h2>
+    <h3>WebDriver Initialization</h3>
+    <pre><code>// Java
+WebDriver driver = new ChromeDriver();
+WebDriver driver = new FirefoxDriver();
+WebDriver driver = new EdgeDriver();
+
+// Python
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver = webdriver.Firefox()
+driver = webdriver.Edge()
+
+// C#
+IWebDriver driver = new ChromeDriver();
+IWebDriver driver = new FirefoxDriver();</code></pre>
+
+    <h2>Navigation</h2>
+    <pre><code>// Java
+driver.get("https://example.com");
+driver.navigate().to("https://example.com");
+driver.navigate().back();
+driver.navigate().forward();
+driver.navigate().refresh();
+
+// Python
+driver.get("https://example.com")
+driver.back()
+driver.forward()
+driver.refresh()
+
+// C#
+driver.Navigate().GoToUrl("https://example.com");
+driver.Navigate().Back();
+driver.Navigate().Forward();
+driver.Navigate().Refresh();</code></pre>
+
+    <h2>Element Location</h2>
+    <pre><code>// Java
+driver.findElement(By.id("elementId"));
+driver.findElement(By.name("elementName"));
+driver.findElement(By.className("className"));
+driver.findElement(By.tagName("tagName"));
+driver.findElement(By.cssSelector("css"));
+driver.findElement(By.xpath("//xpath"));
+driver.findElement(By.linkText("Link Text"));
+driver.findElement(By.partialLinkText("Partial"));
+
+// Python
+driver.find_element(By.ID, "elementId")
+driver.find_element(By.NAME, "elementName")
+driver.find_element(By.CLASS_NAME, "className")
+driver.find_element(By.TAG_NAME, "tagName")
+driver.find_element(By.CSS_SELECTOR, "css")
+driver.find_element(By.XPATH, "//xpath")
+
+// C#
+driver.FindElement(By.Id("elementId"));
+driver.FindElement(By.Name("elementName"));
+driver.FindElement(By.ClassName("className"));
+driver.FindElement(By.TagName("tagName"));
+driver.FindElement(By.CssSelector("css"));
+driver.FindElement(By.XPath("//xpath"));</code></pre>
+
+    <h2>User Actions</h2>
+    <h3>Clicking & Typing</h3>
+    <pre><code>// Java
+element.click();
+element.sendKeys("text");
+element.clear();
+element.submit();
+
+// Python
+element.click()
+element.send_keys("text")
+element.clear()
+element.submit()
+
+// C#
+element.Click();
+element.SendKeys("text");
+element.Clear();
+element.Submit();</code></pre>
+
+    <h3>Dropdowns</h3>
+    <pre><code>// Java
+Select dropdown = new Select(element);
+dropdown.selectByVisibleText("Option Text");
+dropdown.selectByValue("value");
+dropdown.selectByIndex(0);
+
+// Python
+from selenium.webdriver.support.ui import Select
+dropdown = Select(element)
+dropdown.select_by_visible_text("Option Text")
+dropdown.select_by_value("value")
+dropdown.select_by_index(0)
+
+// C#
+SelectElement dropdown = new SelectElement(element);
+dropdown.SelectByText("Option Text");
+dropdown.SelectByValue("value");
+dropdown.SelectByIndex(0);</code></pre>
+
+    <h2>Waits</h2>
+    <pre><code>// Java - Explicit Wait
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("element")));
+wait.until(ExpectedConditions.elementToBeClickable(By.id("element")));
+
+// Python - Explicit Wait
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+wait = WebDriverWait(driver, 10)
+wait.until(EC.visibility_of_element_located((By.ID, "element")))
+wait.until(EC.element_to_be_clickable((By.ID, "element")))
+
+// Implicit Wait
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Java
+driver.implicitly_wait(10) # Python</code></pre>
+
+    <h2>Assertions</h2>
+    <pre><code>// Java
+element.isDisplayed();
+element.isEnabled();
+element.isSelected();
+element.getText();
+element.getAttribute("attribute");
+
+// Python
+element.is_displayed()
+element.is_enabled()
+element.is_selected()
+element.text
+element.get_attribute("attribute")
+
+// C#
+element.Displayed;
+element.Enabled;
+element.Selected;
+element.Text;
+element.GetAttribute("attribute");</code></pre>
+
+    <h2>Browser Management</h2>
+    <pre><code>// Java
+driver.manage().window().maximize();
+driver.manage().window().setSize(new Dimension(1024, 768));
+driver.getTitle();
+driver.getCurrentUrl();
+driver.getPageSource();
+driver.quit();
+
+// Python
+driver.maximize_window()
+driver.set_window_size(1024, 768)
+driver.title
+driver.current_url
+driver.page_source
+driver.quit()
+
+// C#
+driver.Manage().Window.Maximize();
+driver.Manage().Window.Size = new Size(1024, 768);
+driver.Title;
+driver.Url;
+driver.PageSource;
+driver.Quit();</code></pre>
+
+    <a href="../index.html" class="back-link">← Back to Main</a>
+</body>
+</html>
