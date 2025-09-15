@@ -10,21 +10,29 @@ public class java_code {
         System.out.println("\nLongest Common Subsequence Length: " + result);
     }
 
-    // Simple approach - just scan and match characters
+    // Space-optimized iterative approach using only two arrays
     public static int longestCommonSubsequence(String text1, String text2) {
-        int length1 = text1.length();
-        int length2 = text2.length();
+        int m = text1.length();
+        int n = text2.length();
 
-        int[][] dp = new int[length1 + 1][length2 + 1];
+        // Use only two arrays instead of full 2D table
+        int[] prev = new int[n + 1];
+        int[] curr = new int[n + 1];
 
-        for (int i = 1; i <= length1; i++) {
-            for (int j = 1; j <= length2; j++) {
-                if (text1.charAt(i - 1) == text2.charAt(j - 1))
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
-                else
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    curr[j] = prev[j - 1] + 1;
+                } else {
+                    curr[j] = Math.max(prev[j], curr[j - 1]);
+                }
             }
+            // Swap arrays for next iteration
+            int[] temp = prev;
+            prev = curr;
+            curr = temp;
         }
-        return dp[length1][length2];
+
+        return prev[n];
     }
 }

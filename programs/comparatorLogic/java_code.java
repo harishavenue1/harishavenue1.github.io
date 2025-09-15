@@ -35,7 +35,7 @@ class Task {
     }
 }
 
-public class ComparatorLogic {
+public class java_code {
     
     // Java: Custom string comparator - length first, then alphabetical
     public static class CustomStringComparator implements Comparator<String> {
