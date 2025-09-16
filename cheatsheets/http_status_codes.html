@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HTTP Status Codes Cheat Sheet</title>
+<style>
+  body { font-family: -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; margin: 24px; background: #f7f9fc; color: #111; }
+  header { margin-bottom: 18px; }
+  h1 { color: #0b5cff; margin:0 0 6px 0; }
+  p.lead { margin: 0 0 12px 0; color: #374151; }
+  section { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(16,24,40,0.06); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eef2f7; font-size: 14px; vertical-align: top; }
+  th { background: #fbfdff; color: #0b2545; width: 110px; }
+  .code { font-family: Menlo, Monaco, "Courier New", monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; }
+  footer { margin-top: 18px; color: #6b7280; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>HTTP Status Codes — Complete Cheat Sheet</h1>
+  <p class="lead">A compact reference of HTTP status codes, grouped by category. Use this while building or testing APIs.</p>
+</header>
+
+<section>
+  <h2>1xx — Informational</h2>
+  <table>
+    <thead><tr><th>Code</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="code">100</td><td>Continue — client should continue with request</td></tr>
+      <tr><td class="code">101</td><td>Switching Protocols — server is switching protocols as requested</td></tr>
+      <tr><td class="code">102</td><td>Processing (WebDAV) — server has received and is processing the request</td></tr>
+      <tr><td class="code">103</td><td>Early Hints — used to return preloads and hints to client</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>2xx — Success</h2>
+  <table>
+    <tbody>
+      <tr><td class="code">200</td><td>OK — request succeeded</td></tr>
+      <tr><td class="code">201</td><td>Created — resource created (typically after POST)</td></tr>
+      <tr><td class="code">202</td><td>Accepted — request accepted for processing (async)</td></tr>
+      <tr><td class="code">203</td><td>Non-Authoritative Information — returned meta-information not from origin server</td></tr>
+      <tr><td class="code">204</td><td>No Content — success but no body to return</td></tr>
+      <tr><td class="code">205</td><td>Reset Content — instructs client to reset view (no body)</td></tr>
+      <tr><td class="code">206</td><td>Partial Content — server is delivering partial content (range requests)</td></tr>
+      <tr><td class="code">207</td><td>Multi-Status (WebDAV)</td></tr>
+      <tr><td class="code">208</td><td>Already Reported (WebDAV)</td></tr>
+      <tr><td class="code">226</td><td>IM Used — response is a representation of the result of one or more instance-manipulations</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>3xx — Redirection</h2>
+  <table>
+    <tbody>
+      <tr><td class="code">300</td><td>Multiple Choices — multiple representations available</td></tr>
+      <tr><td class="code">301</td><td>Moved Permanently — resource moved to new URL</td></tr>
+      <tr><td class="code">302</td><td>Found — temporary redirect</td></tr>
+      <tr><td class="code">303</td><td>See Other — redirect to GET on different URI</td></tr>
+      <tr><td class="code">304</td><td>Not Modified — cached resource valid, no need to resend</td></tr>
+      <tr><td class="code">305</td><td>Use Proxy — deprecated / rarely used</td></tr>
+      <tr><td class="code">306</td><td>(Unused)</td></tr>
+      <tr><td class="code">307</td><td>Temporary Redirect — keeps the same HTTP method</td></tr>
+      <tr><td class="code">308</td><td>Permanent Redirect — keeps the same HTTP method</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>4xx — Client Errors</h2>
+  <table>
+    <tbody>
+      <tr><td class="code">400</td><td>Bad Request — request malformed or invalid</td></tr>
+      <tr><td class="code">401</td><td>Unauthorized — authentication required or failed</td></tr>
+      <tr><td class="code">402</td><td>Payment Required — reserved for future use</td></tr>
+      <tr><td class="code">403</td><td>Forbidden — authenticated but not allowed</td></tr>
+      <tr><td class="code">404</td><td>Not Found — resource doesn't exist</td></tr>
+      <tr><td class="code">405</td><td>Method Not Allowed — HTTP method not supported by endpoint</td></tr>
+      <tr><td class="code">406</td><td>Not Acceptable — content negotiation failed</td></tr>
+      <tr><td class="code">407</td><td>Proxy Authentication Required</td></tr>
+      <tr><td class="code">408</td><td>Request Timeout — server timed out waiting for the request</td></tr>
+      <tr><td class="code">409</td><td>Conflict — request conflicts with current server state</td></tr>
+      <tr><td class="code">410</td><td>Gone — resource permanently removed</td></tr>
+      <tr><td class="code">411</td><td>Length Required — Content-Length header required</td></tr>
+      <tr><td class="code">412</td><td>Precondition Failed — one or more preconditions failed</td></tr>
+      <tr><td class="code">413</td><td>Payload Too Large — request entity too large</td></tr>
+      <tr><td class="code">414</td><td>URI Too Long — request-URI is too long</td></tr>
+      <tr><td class="code">415</td><td>Unsupported Media Type — media type not supported</td></tr>
+      <tr><td class="code">416</td><td>Range Not Satisfiable — invalid range header</td></tr>
+      <tr><td class="code">417</td><td>Expectation Failed</td></tr>
+      <tr><td class="code">418</td><td>I'm a teapot — Easter egg (RFC 2324)</td></tr>
+      <tr><td class="code">421</td><td>Misdirected Request — request sent to a server that can't produce a response</td></tr>
+      <tr><td class="code">422</td><td>Unprocessable Entity (WebDAV) — semantic errors in request</td></tr>
+      <tr><td class="code">423</td><td>Locked (WebDAV)</td></tr>
+      <tr><td class="code">424</td><td>Failed Dependency (WebDAV)</td></tr>
+      <tr><td class="code">425</td><td>Too Early — server is unwilling to risk processing a request that might be replayed</td></tr>
+      <tr><td class="code">426</td><td>Upgrade Required</td></tr>
+      <tr><td class="code">428</td><td>Precondition Required</td></tr>
+      <tr><td class="code">429</td><td>Too Many Requests — rate limiting</td></tr>
+      <tr><td class="code">431</td><td>Request Header Fields Too Large</td></tr>
+      <tr><td class="code">451</td><td>Unavailable For Legal Reasons</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>5xx — Server Errors</h2>
+  <table>
+    <tbody>
+      <tr><td class="code">500</td><td>Internal Server Error — generic server error</td></tr>
+      <tr><td class="code">501</td><td>Not Implemented — server does not support requested functionality</td></tr>
+      <tr><td class="code">502</td><td>Bad Gateway — invalid response from upstream server</td></tr>
+      <tr><td class="code">503</td><td>Service Unavailable — server is overloaded or down for maintenance</td></tr>
+      <tr><td class="code">504</td><td>Gateway Timeout — upstream server failed to respond in time</td></tr>
+      <tr><td class="code">505</td><td>HTTP Version Not Supported</td></tr>
+      <tr><td class="code">506</td><td>Variant Also Negotiates</td></tr>
+      <tr><td class="code">507</td><td>Insufficient Storage (WebDAV)</td></tr>
+      <tr><td class="code">508</td><td>Loop Detected (WebDAV)</td></tr>
+      <tr><td class="code">510</td><td>Not Extended</td></tr>
+      <tr><td class="code">511</td><td>Network Authentication Required</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <p>Reference: Common HTTP status codes (RFCs and commonly used extensions). This sheet includes standard, WebDAV and some extension codes.</p>
+</footer>
+</body>
+</html>

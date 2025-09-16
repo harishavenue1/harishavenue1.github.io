@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Commands Cheat Sheet</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 20px; }
+        h1 { color: #0db7ed; }
+        h2 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+        pre { background: #272822; color: #f8f8f2; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        section { margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+    <h1>🐳 Docker Commands Cheat Sheet</h1>
+
+    <section>
+        <h2>Basic Commands</h2>
+        <pre><code>docker --version
+docker info
+docker help</code></pre>
+    </section>
+
+    <section>
+        <h2>Images</h2>
+        <pre><code>docker pull &lt;image&gt;
+docker images
+docker rmi &lt;image_id&gt;
+docker build -t myapp:1.0 .
+docker tag myapp:1.0 myrepo/myapp:1.0
+docker push myrepo/myapp:1.0</code></pre>
+    </section>
+
+    <section>
+        <h2>Containers</h2>
+        <pre><code>docker run -it ubuntu bash
+docker run -d -p 8080:80 nginx
+docker ps
+docker ps -a
+docker stop &lt;container_id&gt;
+docker start &lt;container_id&gt;
+docker restart &lt;container_id&gt;
+docker rm &lt;container_id&gt;
+docker logs -f &lt;container_id&gt;
+docker exec -it &lt;container_id&gt; bash
+docker inspect &lt;container_id&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Volumes & Data</h2>
+        <pre><code>docker volume create mydata
+docker volume ls
+docker run -v mydata:/data busybox ls /data
+docker rm -v &lt;container_id&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Networks</h2>
+        <pre><code>docker network ls
+docker network create mynet
+docker run -d --network=mynet nginx
+docker network inspect mynet
+docker network connect mynet &lt;container&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Docker Compose</h2>
+        <pre><code>docker-compose up -d
+docker-compose down
+docker-compose ps
+docker-compose logs -f</code></pre>
+    </section>
+
+    <section>
+        <h2>Cleanup</h2>
+        <pre><code>docker system prune -f
+docker image prune -a
+docker container prune
+docker volume prune</code></pre>
+    </section>
+
+</body>
+</html>

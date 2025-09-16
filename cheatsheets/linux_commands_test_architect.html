@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Commands for Test Architect Interview</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+        h1, h2 { color: #2E8B57; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        table, th, td { border: 1px solid #ccc; }
+        th, td { padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        code { background-color: #f9f9f9; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Linux Commands for Test Architect Interview</h1>
+
+    <h2>1. File & Directory Management</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>ls -l</td><td>List files in long format</td></tr>
+        <tr><td>ls -a</td><td>List all files including hidden</td></tr>
+        <tr><td>pwd</td><td>Print current directory path</td></tr>
+        <tr><td>cd /path/to/dir</td><td>Change directory</td></tr>
+        <tr><td>mkdir &lt;dir&gt;</td><td>Create directory</td></tr>
+        <tr><td>rm &lt;file&gt;</td><td>Delete a file</td></tr>
+        <tr><td>rm -rf &lt;dir&gt;</td><td>Delete directory recursively</td></tr>
+        <tr><td>touch &lt;file&gt;</td><td>Create an empty file</td></tr>
+        <tr><td>cp source dest</td><td>Copy file or directory</td></tr>
+        <tr><td>mv source dest</td><td>Move or rename file/directory</td></tr>
+    </table>
+
+    <h2>2. File Viewing & Editing</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>cat file</td><td>Display file content</td></tr>
+        <tr><td>less file</td><td>View file content page by page</td></tr>
+        <tr><td>tail -f file</td><td>View file live (log monitoring)</td></tr>
+        <tr><td>head -n 10 file</td><td>View first 10 lines</td></tr>
+        <tr><td>nano file / vi file</td><td>Edit file from terminal</td></tr>
+        <tr><td>grep 'text' file</td><td>Search text inside files</td></tr>
+        <tr><td>grep -r 'text' dir/</td><td>Recursive search</td></tr>
+        <tr><td>wc -l file</td><td>Count lines in file</td></tr>
+    </table>
+
+    <h2>3. File Permissions & Ownership</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>ls -l</td><td>Check permissions of files/directories</td></tr>
+        <tr><td>chmod 755 file</td><td>Change file permissions</td></tr>
+        <tr><td>chown user:group file</td><td>Change file owner/group</td></tr>
+        <tr><td>umask</td><td>Default permission for new files</td></tr>
+    </table>
+
+    <h2>4. Process & System Management</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>ps -ef</td><td>List running processes</td></tr>
+        <tr><td>top / htop</td><td>Monitor live system/process usage</td></tr>
+        <tr><td>kill &lt;PID&gt;</td><td>Kill a process</td></tr>
+        <tr><td>kill -9 &lt;PID&gt;</td><td>Force kill process</td></tr>
+        <tr><td>df -h</td><td>Disk usage info</td></tr>
+        <tr><td>du -sh &lt;dir&gt;</td><td>Directory size</td></tr>
+        <tr><td>free -m</td><td>Memory usage in MB</td></tr>
+    </table>
+
+    <h2>5. Networking & Connectivity</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>ping host</td><td>Check connectivity to host</td></tr>
+        <tr><td>curl http://url</td><td>Test API / HTTP request</td></tr>
+        <tr><td>wget http://url</td><td>Download file</td></tr>
+        <tr><td>netstat -tuln</td><td>Check open ports</td></tr>
+        <tr><td>ss -tulnp</td><td>List listening ports with processes</td></tr>
+        <tr><td>telnet host port</td><td>Test connection to a port</td></tr>
+    </table>
+
+    <h2>6. Archiving & Compression</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>tar -cvf archive.tar dir/</td><td>Create tar archive</td></tr>
+        <tr><td>tar -xvf archive.tar</td><td>Extract tar archive</td></tr>
+        <tr><td>gzip file</td><td>Compress file</td></tr>
+        <tr><td>gunzip file.gz</td><td>Decompress file</td></tr>
+        <tr><td>zip file.zip dir/</td><td>Zip directory</td></tr>
+        <tr><td>unzip file.zip</td><td>Unzip file</td></tr>
+    </table>
+
+    <h2>7. Logs & Monitoring</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>tail -f /var/log/syslog</td><td>Monitor system logs</td></tr>
+        <tr><td>grep ERROR /var/log/app.log</td><td>Find error logs</td></tr>
+        <tr><td>watch 'command'</td><td>Run command repeatedly (e.g., monitor logs)</td></tr>
+        <tr><td>dmesg</td><td>Kernel logs, useful for debugging</td></tr>
+    </table>
+
+    <h2>8. Package Management</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>apt-get update</td><td>Update package list (Debian/Ubuntu)</td></tr>
+        <tr><td>apt-get install &lt;pkg&gt;</td><td>Install package</td></tr>
+        <tr><td>yum install &lt;pkg&gt;</td><td>Install package (RedHat/CentOS)</td></tr>
+        <tr><td>dpkg -l</td><td>List installed packages</td></tr>
+        <tr><td>rpm -qa</td><td>List installed packages (RPM)</td></tr>
+    </table>
+
+    <h2>9. Environment & Variables</h2>
+    <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td>echo $PATH</td><td>Print environment variable</td></tr>
+        <tr><td>export VAR=value</td><td>Set environment variable</td></tr>
+        <tr><td>printenv</td><td>List all environment variables</td></tr>
+        <tr><td>env</td><td>View current environment</td></tr>
+        <tr><td>source ~/.bashrc</td><td>Reload bash profile settings</td></tr>
+    </table>
+
+    <h2>10. Automation / CI Commands</h2>
+    <ul>
+        <li>cron / crontab -e → Schedule jobs</li>
+        <li>chmod +x script.sh → Make script executable</li>
+        <li>./script.sh → Run shell script</li>
+        <li>ssh user@host → Remote login</li>
+        <li>scp file user@host:/path → Copy files to remote</li>
+        <li>rsync -av source/ dest/ → Sync directories</li>
+    </ul>
+
+</body>
+</html>
